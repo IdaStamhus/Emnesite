@@ -1,19 +1,11 @@
 /* ***********************Forside************************************ */
-
-.image-container1 {
+main section:first-child {
   text-align: center;
   padding: 0.5rem 0 2rem 0;
   position: relative;
 }
 
-p {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1000px;
-}
-
-h1 {
+main section:first-child h1 {
   margin-bottom: 2rem;
   margin-top: 0;
   font-size: 4rem;
@@ -21,15 +13,23 @@ h1 {
   letter-spacing: 2px;
 }
 
-.image-container1 img {
-  position: relative;
-  display: block;
+.image-container {
+  position: relative; 
+  display: inline-block;
   margin: 2rem auto;
   width: 80%;
-  height: auto;
+  max-width: 800px;
 }
 
-.grid_1-1-1 {
+main section:first-child img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+main section:nth-child(2) {
   text-align: center;
   padding: 2rem 0;
   max-width: 800px;
@@ -38,25 +38,46 @@ h1 {
   padding-top: 3rem;
   padding-bottom: 3rem;
   margin-bottom: 2rem;
+  position: relative;
 }
 
-.image-container2 img {
+main section:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 1px;
+  background-color: #000;
+}
+
+main section:nth-child(2) h2 {
+  margin-bottom: 2rem;
+}
+
+main section:nth-child(2) p {
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+main section:nth-child(2) img {
   width: 80%;
   max-width: 800px;
   height: auto;
   margin: 2rem auto;
   display: block;
   border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+main section:nth-child(2) h2 {
   margin-bottom: 2rem;
   margin-top: 0;
   font-size: 3rem;
   font-weight: 800;
   letter-spacing: 2px;
 }
-
 .getstarted {
   position: absolute;
   top: 50%;
@@ -83,7 +104,7 @@ h2 {
 /* ***********************Playlister************************************ */
 .playlister {
   display: grid;
-  grid-gap: 4em;
+  grid-gap: 1em;
   max-width: 850px;
   margin: 0 auto;
 }
@@ -118,15 +139,20 @@ h2 {
 
 /* ***********************Ugens Top Picks************************************ */
 
+/* body:has(.image-container) main section::before,
+body:has(.image-container) main section::after {
+  display: none;
+} */
+
 .grid_1-1-1 {
   display: grid;
-  grid-template-columns: 1.2fr 1.2fr 1.2fr;
-  gap: 4rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
   position: relative;
 }
 
 .grid_1-1-1 .grid-column {
-  background: #ffffff;
+  background: #f3f3f3;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
   padding: 2rem 1rem;
@@ -135,6 +161,7 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
 }
 
 .grid_1-1-1 nav {
@@ -155,51 +182,34 @@ h2 {
   padding: 0.5rem 0;
 }
 
+.grid_1-1-1 nav ul li:last-child {
+  border-bottom: none;
+}
+
 .grid_1-1-1 nav ul li a {
   color: #000;
   text-decoration: none;
 }
 
-.image-container3 {
-  background-image: url("../imgs/toppicks.webp");
-  background-position: center;
+.image-container {
   position: relative;
-  text-align: center;
-  padding: 0.5rem 0 0.5rem 0;
-  max-width: 100vw;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.image-container3 img {
-  width: 100%;
-  max-width: 1200px;
-  height: auto;
-  display: block;
+  display: inline-block;
   margin: 2rem auto;
-  object-fit: cover;
-  z-index: 1;
+  width: 80%;
+  max-width: 800px;
 }
 
-.image-container3 .grid_1-1-1 {
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
-  max-width: 1200px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-items: center;
-  align-items: center;
-}
+/* .page-background img  {
+  position: absolute;
+  width: 80%;
+} */
 
-.image-container3 .grid-column {
-  background: #ffffff;
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.07);
-  padding: 2rem 1rem;
-  flex-direction: column;
-}
+/* .page-background {
+ position: absolute;
+ width: 100%;
+ padding: 0;
+  margin: 0;
+} */
 
 /* ***********************Ugens Top Picks************************************ */
 
@@ -209,131 +219,55 @@ main:has(h1) section::after {
   display: none;
 }
 
-.image-container4 img {
-  width: 80%;
-  max-width: 900px;
-  height: auto;
-  display: block;
-  margin: 2rem auto;
-  object-fit: cover;
-}
-
-.grid_1-1-1.albums {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.grid_1-1-1.albums .grid-column1 {
-  background: #f2f2f2;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-  padding: 2rem 1rem;
-  min-height: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 /* ***********************Albums************************************ */
 
 /* ***********************Footer************************************ */
-
 footer {
   border-top: 1px solid #000;
   width: 100%;
-  padding: 0rem 1rem;
-  margin-top: 1rem;
-}
-
-.klangtag {
+  padding: 2rem 2rem;
+  margin-top: 3rem;
   text-align: left;
 }
 
 .medieikoner {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
 }
 
 .medieikoner img {
   height: 4em;
+  width: auto;
+  vertical-align: middle;
 }
 
 .delmedvenner {
   display: inline-block;
+  margin-top: 10px;
   padding: 8px 12px;
   background-color: #ffffff;
   color: rgb(0, 0, 0);
   text-decoration: none;
   border-radius: 4px;
-  text-align: right;
-  padding-right: 2rem;
 }
 
 .delmedvenner:hover {
   background-color: #555;
 }
 
-.footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-}
-
 /* ***********************Footer************************************ */
 
-@media (width > 600px) {
+
+@media (width > 500px) {
   .playlister {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (max-width: 800px) {
-  .image-container3 .grid_1-1-1 {
-    position: static;
-    transform: none;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    max-width: 90%;
-    margin: 1rem auto 2rem auto;
-    padding: 0;
-  }
 
-  .image-container3 .grid_1-1-1 .grid-column {
-    width: 100%;
-    margin: 0 0 1rem 0;
-  }
 
-  .image-container3 .grid-column {
-    background: #ffffff;
-    border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.07);
-    padding: 2rem 1rem;
-    flex-direction: column;
-  }
-}
-@media (width < 1320px) {
-  .image-container3 .grid_1-1-1 {
-    grid-template-columns: 1fr 1fr;
-  }
-}
 
-@media (width < 1200px) {
-  .image-container3 .grid_1-1-1 {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (width < 1200px) {
-  .grid_1-1-1.albums {
-    grid-template-columns: 1fr;
-  }
-}
 
 
